@@ -25,6 +25,9 @@ public:
 
 	int32 EditsInstanceOnlyInt = 5; 
 
+protected:
+	
+	void RotateTurret(FVector LookAtTarget);
 
 private:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components", meta = (AllowPrivateAccess = "true"))
