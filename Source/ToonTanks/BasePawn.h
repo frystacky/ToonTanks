@@ -15,19 +15,10 @@ public:
 	// Sets default values for this pawn's properties
 	ABasePawn();
 
-	UPROPERTY(VisibleDefaultsOnly, BlueprintReadWrite)
-	int32 VisibleDefaultsOnlyInt = 5;
-
-	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
-	int32 EditsDefaultsOnlyInt = 5;
-
-	UPROPERTY(EditInstanceOnly)
-
-	int32 EditsInstanceOnlyInt = 5; 
-
 protected:
 	
 	void RotateTurret(FVector LookAtTarget);
+	void Fire();
 
 private:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components", meta = (AllowPrivateAccess = "true"))
@@ -38,8 +29,5 @@ private:
 	UStaticMeshComponent* TurretMesh;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components", meta = (AllowPrivateAccess = "true"))
 	USceneComponent* ProjectileSpawnPoint;
-
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Super Test Variables", meta = (AllowPrivateAccess = "true"))
-	int32 VisibleAnywhereInt = 5;
 
 };
