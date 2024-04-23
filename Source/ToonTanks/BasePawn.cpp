@@ -27,6 +27,11 @@ ABasePawn::ABasePawn()
 
 }
 
+void ABasePawn::HandleDestruction()
+{
+	// TODO: Visual/sound effects when pawn dies
+}
+
 //pass in location of target to calculate look location rotation
 void ABasePawn::RotateTurret(FVector LookAtTarget)
 {

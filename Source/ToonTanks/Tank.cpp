@@ -34,10 +34,10 @@ void ATank::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	if (PlayerControllerRef)
+	if (TankPlayerController)
 	{
 		FHitResult HitResult;
-		PlayerControllerRef->GetHitResultUnderCursor(ECollisionChannel::ECC_Visibility, false, HitResult);
+		TankPlayerController->GetHitResultUnderCursor(ECollisionChannel::ECC_Visibility, false, HitResult);
 
 		DrawDebugSphere(GetWorld(), HitResult.ImpactPoint, 30.f, 12, FColor::Red, false, -1.f);
 
@@ -46,12 +46,20 @@ void ATank::Tick(float DeltaTime)
 	}
 }
 
+void ATank::HandleDestruction()
+{
+	Super::HandleDestruction();
+	//will hide actor so we can still move camera
+	SetActorHiddenInGame(true);
+	SetActorTickEnabled(false);
+}
+
 // Called when the game starts or when spawned
 void ATank::BeginPlay()
 {
 	Super::BeginPlay();
 
-	PlayerControllerRef = Cast<APlayerController>(GetController());
+	TankPlayerController = Cast<APlayerController>(GetController());
 
 	/*DrawDebugSphere(
 		GetWorld(), 
