@@ -52,6 +52,7 @@ void ATank::HandleDestruction()
 	//will hide actor so we can still move camera
 	SetActorHiddenInGame(true);
 	SetActorTickEnabled(false);
+	bAlive = false;
 }
 
 // Called when the game starts or when spawned
